@@ -4,12 +4,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{textcomp}
 
 \usetheme{Madrid}
 \setbeamertemplate{navigation symbols}{}
 
 \lstset{
 language=Python,
+upquote=true,
 basicstyle=\ttfamily\tiny,
 backgroundcolor=\color{white},
 keywordstyle=\color{blue}\bfseries,
@@ -371,6 +373,234 @@ valores = [7,1,3,9,8,4,2,7,4,2,3,5]
 quick_sort(valores)
 print(valores)
 	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\section{Lista}
+
+\begin{frame}
+\frametitle{Lista Ligada}
+
+\begin{block}{Definição}
+	É uma estrutura de dados que implementa uma coleção de dados ligados (encadeados) de forma dinâmica em um único sentido.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class Elemento:
+    def __init__(self,nome):
+        self.nome = nome
+        self.proximo = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Lista Ligada}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class ListaLigada:
+    def __init__(self):
+        self.inicio = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Adicionar}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def adicionar(self, nome):
+    novo = Elemento(nome)
+    if self.inicio == None:
+        self.inicio = novo
+    else:
+        elemento = self.inicio
+        while elemento.proximo != None:
+            elemento = elemento.proximo
+        elemento.proximo = novo
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Exibir}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def exibir(self):
+    elemento = self.inicio
+    print(elemento.nome)
+    while elemento.proximo != None:
+        elemento = elemento.proximo
+        print(elemento.nome)
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Remover}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+def remover(self, nome):
+    elemento = self.inicio
+    if elemento.nome == nome:
+        self.inicio = elemento.proximo
+    else:
+        while elemento.proximo != None:
+            if elemento.proximo.nome == nome:
+                elemento.proximo = elemento.proximo.proximo
+            else:
+                elemento = elemento.proximo
+\end{lstlisting}
+
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Lista Ligada}
+
+\begin{exampleblock}{Código}
+	
+\begin{lstlisting}
+lista = ListaLigada()
+
+lista.adicionar('João')
+lista.adicionar('Pedro')
+lista.adicionar('Marcos')
+lista.adicionar('Lucas')
+
+lista.remover('Pedro')
+
+lista.exibir()
+\end{lstlisting}
+	
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lista Duplamente Ligada}
+
+\begin{block}{Definição}
+É uma estrutura de dados que implementa uma coleção de dados ligados de forma dinâmica em sentido duplo.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+class Elemento:
+    def __init__(self,nome):
+        self.anterior = None
+        self.nome = nome
+        self.proximo = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Duplamente Ligada}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+class ListaLigada:
+    def __init__(self):
+        self.inicio = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Adicionar}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def adicionar(self, nome):
+    novo = Elemento(nome)
+    if self.inicio == None:
+        self.inicio = novo
+    else:
+        elemento = self.inicio
+        while elemento.proximo != None:
+            elemento = elemento.proximo
+        elemento.proximo = novo
+        novo.anterior = elemento
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Exibir}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def exibir(self):
+    elemento = self.inicio
+    print(elemento.nome)
+    while elemento.proximo != None:
+        elemento = elemento.proximo
+        print(elemento.nome)
+    while elemento.anterior != None:
+        elemento = elemento.anterior
+        print(elemento.nome)
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Remover}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+def remover(self, nome):
+    elemento = self.inicio
+    if elemento.nome == nome:
+        self.inicio = elemento.proximo
+        self.inicio.anterior = None
+    else:
+        elemento = elemento.proximo
+        while elemento != None:
+            if elemento.nome == nome:
+                if elemento.proximo != None:
+                    elemento.anterior.proximo = elemento.proximo
+                    elemento.proximo.anterior = elemento.anterior
+                else:
+                    elemento.anterior.proximo = None
+            elemento = elemento.proximo
+\end{lstlisting}
+
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Duplamente Ligada}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+lista = ListaDuplamenteLigada()
+
+lista.adicionar('João')
+lista.adicionar('Pedro')
+lista.adicionar('Marcos')
+lista.adicionar('Lucas')
+
+lista.remover('Pedro')
+
+lista.exibir()
+\end{lstlisting}
+
 \end{exampleblock}
 \end{frame}
 
