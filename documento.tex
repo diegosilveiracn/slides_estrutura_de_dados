@@ -107,58 +107,6 @@ diego.nascimento@ifrn.edu.br
 	\end{frame}
 }
 
-\section{Introdução}
-
-\begin{frame}
-	\frametitle{Objetivos}
-	
-	\begin{itemize}
-		\item Consolidar os conhecimentos sobre programação previamente
-		adquiridos;
-		\item Identificar e desenvolver modelos matemáticos, determinando que
-		classes de problemas podem ser resolvidos com o uso deles;
-		\item Criar representações concretas dos objetos e desenvolver rotinas
-		capazes de atuar sobre essas representações, de acordo com o modelo
-		considerado;
-		\item Fornecer domínio de alocação dinâmica de memória;
-		\item Apresentar as principais estruturas de dados: lista, fila, pilha, árvores e
-		tabelas de dispersão;
-		\item Introduzir aspectos básicos da complexidade de algoritmos;
-		\item Apresentar os principais processos de ordenação e pesquisa de dados.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Motivações}
-	
-	\begin{itemize}
-		\item Proporciona reúso de código;
-		\item Diminui custos de desenvolvimento e manutenção;
-		\item Melhora o desempenho do sistema; e
-		\item Organiza as informações.
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Definições}
-
-\begin{block}{Algoritmo}
-É uma sequência finita e lógica de instruções ou passos, especificados em
-uma determinada linguagem, que mostram como resolver determinado
-problema.
-\end{block}	\vfill
-
-\begin{block}{Estrutura de Dados}
-É um modo particular de armazenamento e organização de dados em um
-computador de modo que possam ser usados de modo eficiente.
-\end{block}	\vfill
-
-\begin{block}{Programa}
-É uma expressão em linguagem formal inteligível por um computador
-(Algoritmos + Estruturas de dados).
-\end{block}	
-\end{frame}
-
 \section{Ordenação}
 
 \begin{frame}
@@ -382,8 +330,14 @@ print(valores)
 \frametitle{Lista Ligada}
 
 \begin{block}{Definição}
-	É uma estrutura de dados que implementa uma coleção de dados ligados (encadeados) de forma dinâmica em um único sentido.
-\end{block}
+É uma estrutura de dados que implementa uma coleção de dados ligados (encadeados) de forma dinâmica em um único sentido.
+\end{block} \vfill
+
+\begin{itemize}
+	\item Lista ligada;
+	\item Lista duplamente ligada; e
+	\item Lista circular.
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -509,11 +463,11 @@ class Elemento:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Classe Duplamente Ligada}
+\frametitle{Classe Lista Duplamente Ligada}
 
 \begin{exampleblock}{Código}
 \begin{lstlisting}
-class ListaLigada:
+class ListaDuplamenteLigada:
     def __init__(self):
         self.inicio = None
 \end{lstlisting}
@@ -584,7 +538,7 @@ def remover(self, nome):
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Usando Duplamente Ligada}
+\frametitle{Usando Lista Duplamente Ligada}
 
 \begin{exampleblock}{Código}
 
