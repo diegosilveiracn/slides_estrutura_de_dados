@@ -558,4 +558,101 @@ lista.exibir()
 \end{exampleblock}
 \end{frame}
 
+\begin{frame}
+\frametitle{Lista Circular}
+
+\begin{block}{Definição}
+	É uma estrutura de dados que implementa uma coleção de dados ligados de forma dinâmica em um único sendito, no qual o final da lista corresponde o início da própria lista.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Lista Circular}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+class ListaCircular:
+    def __init__(self):
+        self.inicio = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Adicionar}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def adicionar(self, nome):
+    novo = Elemento(nome)
+    if self.inicio == None:
+        self.inicio = novo
+        novo.proximo = self.inicio
+    else:
+        elemento = self.inicio
+        while elemento.proximo.nome != self.inicio.nome:
+            elemento = elemento.proximo
+        elemento.proximo = novo
+        novo.proximo = self.inicio
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Exibir}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def exibir(self):
+    elemento = self.inicio
+    print(elemento.nome)
+    while elemento.proximo.nome != self.inicio.nome:
+        elemento = elemento.proximo
+        print(elemento.nome)
+    print(elemento.proximo.nome)
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Remover}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+def remover(self, nome): 
+    elemento = self.inicio
+    if elemento.nome == nome:
+        self.inicio = elemento.proximo
+        while elemento.proximo.nome != nome:
+            elemento = elemento.proximo
+        elemento.proximo = self.inicio
+    else:
+        while elemento.proximo.nome != nome:
+            elemento = elemento.proximo
+        elemento.proximo = elemento.proximo.proximo
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Lista Circular}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+lista = ListaCircular()
+
+lista.adicionar('João')
+lista.adicionar('Pedro')
+lista.adicionar('Marcos')
+lista.adicionar('Lucas')
+
+lista.remover('João')
+
+lista.exibir()
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
 \end{document}
