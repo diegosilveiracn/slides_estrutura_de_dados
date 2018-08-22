@@ -655,4 +655,81 @@ lista.exibir()
 \end{exampleblock}
 \end{frame}
 
+\section{Pilha}
+
+\begin{frame}
+\frametitle{Pilha}
+
+\begin{block}{Definição}
+	É uma estrutura de dados baseada no princípio LIFO (Last In, First Out), na qual os dados que foram inseridos primeiro na pilha serão os últimos a serem removidos.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Pilha}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+class Pilha:
+    def __init__(self):
+        self.topo = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Empilhar}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+def empilhar(self,nome):
+    novo = Elemento(nome)
+    if self.topo == None:
+        self.topo = novo
+    else:
+        novo.proximo = self.topo  
+        self.topo = novo
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Desempilhar}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+def desempilhar(self):
+    if self.topo == None:
+        return None
+    else:
+        elemento = self.topo
+        self.topo = elemento.proximo
+        return elemento.nome
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Pilha}
+
+\begin{exampleblock}{Código}
+
+\begin{lstlisting}
+pilha = Pilha()
+
+pilha.empilhar('João')
+pilha.empilhar('Lucas')
+pilha.empilhar('Pedro')
+pilha.empilhar('Maria')
+
+nome = pilha.desempilhar()
+
+print(nome)
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
 \end{document}
