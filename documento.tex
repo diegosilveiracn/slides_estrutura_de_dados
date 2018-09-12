@@ -567,6 +567,19 @@ lista.exibir()
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class Elemento:
+    def __init__(self,nome):
+        self.nome = nome
+        self.proximo = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Classe Lista Circular}
 
 \begin{exampleblock}{Código}
@@ -666,6 +679,19 @@ lista.exibir()
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class Elemento:
+    def __init__(self,nome):
+        self.nome = nome
+        self.proximo = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Classe Pilha}
 
 \begin{exampleblock}{Código}
@@ -726,6 +752,191 @@ pilha.empilhar('Pedro')
 pilha.empilhar('Maria')
 
 nome = pilha.desempilhar()
+
+print(nome)
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\section{Fila}
+
+\begin{frame}
+\frametitle{Fila}
+
+\begin{block}{Definição}
+	 É uma estrutura de dados baseada no princípio FIFO (First In, First Out), em que os elementos inseridos no início são os primeiros a serem removidos. 
+\end{block}\vfill
+
+\begin{itemize}
+	\item Fila simples; e
+	\item Fila com prioridade.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class Elemento:
+	def __init__(self,nome):
+	    self.nome = nome
+        self.proximo = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Fila}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class Fila:
+    def __init__(self):
+        self.inicio = None
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Enfileirar}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def enfileirar(self,nome):
+    novo = Elemento(nome)
+    if self.inicio == None:
+        self.inicio = novo
+    else:
+        elemento = self.inicio
+        while elemento.proximo != None:
+            elemento = elemento.proximo
+        elemento.proximo = novo
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Desenfileirar}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def desenfileirar(self):
+    if self.inicio == None:
+        return None
+    else:
+        elemento = self.inicio
+        self.inicio = elemento.proximo
+        return elemento.nome
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Fila}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+fila = Fila()
+
+fila.enfileirar('João')
+fila.enfileirar('Pedro')
+fila.enfileirar('Lucas')
+fila.enfileirar('Maria')
+
+nome = fila.desenfileirar()
+
+print(nome)
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Fila com Prioridade}
+
+\begin{block}{Definição}
+É uma estrutura de dados em que os elementos são inseridos em ordem de prioridade.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Elemento}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+class Elemento:
+    def __init__(self,nome,prioridade):
+        self.nome = nome
+        self.prioridade = prioridade
+        self.proximo = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Fila com Prioridade}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+class FilaPrioridade:
+    def __init__(self):
+        self.inicio = None
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Enfileirar}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def enfileirar(self,nome,prioridade):
+    novo = Elemento(nome,prioridade)
+    if self.inicio == None:
+        self.inicio = novo
+    elif self.inicio.prioridade >= novo.prioridade:
+        novo.proximo = self.inicio
+        self.inicio = novo
+    else:
+        elemento = self.inicio
+        while (elemento.proximo != None and 
+               elemento.proximo.prioridade < novo.prioridade):
+            elemento = elemento.proximo
+        novo.proximo = elemento.proximo
+        elemento.proximo = novo
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Desenfileirar}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+def desenfileirar(self):
+    if self.inicio == None:
+        return None
+    else:
+        elemento = self.inicio
+        self.inicio = elemento.proximo
+        return elemento.nome
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Fila com Prioridade}
+
+\begin{exampleblock}{Código}
+\begin{lstlisting}
+fila = FilaPrioridade()
+
+fila.enfileirar('João',3)
+fila.enfileirar('Pedro',2)
+fila.enfileirar('Lucas',1)
+fila.enfileirar('Maria',0)
+
+nome = fila.desenfileirar()
 
 print(nome)
 \end{lstlisting}
