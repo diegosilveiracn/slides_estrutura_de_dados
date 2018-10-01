@@ -943,4 +943,101 @@ print(nome)
 \end{exampleblock}
 \end{frame}
 
+\section{Espalhamento}
+
+\begin{frame}
+\frametitle{Tabela de Espalhamento}
+
+\begin{block}{Definição}
+É uma estrutura de dados especial, que associa chaves de pesquisa a valores.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Classe Tabela de Espalhamento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+class TabelaEspalhamento:
+    def __init__(self,n):
+        self.tabela = []
+        for i in range(0,n):
+            self.tabela.append(ListaLigada())
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método de Espalhamento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def espalhamento(self,valor):
+    return valor % len(self.tabela)
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método de Adicionar}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def adicionar(self,valor):
+    chave = self.espalhamento(valor)
+    self.tabela[chave].adicionar(valor)
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Exibir}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def exibir(self):
+    for i in range(0,len(self.tabela)):
+        print('Chave:',i)
+        self.tabela[i].exibir()
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Método Remover}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+def remover(self,valor):
+    chave = self.espalhamento(valor)
+    self.tabela[chave].remover(valor)
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Usando Tabela de Espalhamento}
+
+\begin{exampleblock}{Código}
+	\begin{lstlisting}
+tabela = TabelaEspalhamento(5)
+
+tabela.adicionar(54)
+tabela.adicionar(21)
+tabela.adicionar(15)
+tabela.adicionar(46)
+tabela.adicionar(7)
+tabela.adicionar(33)
+tabela.adicionar(78)
+tabela.adicionar(9)
+tabela.adicionar(14)
+tabela.adicionar(62)
+tabela.adicionar(95)
+tabela.adicionar(87)
+
+tabela.exibir()
+	\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
 \end{document}
