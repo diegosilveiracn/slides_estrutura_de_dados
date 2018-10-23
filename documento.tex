@@ -127,7 +127,7 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
 	\frametitle{Ordenação por Inserção}
 	
 	\begin{itemize}
@@ -137,25 +137,9 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 		ordenados; e
 		\item Assemelha-se a ordenação de cartas de um jogo de baralho.
 	\end{itemize}
-	
-	\begin{exampleblock}{Exemplo}
-		\begin{lstlisting}
-valores = [5, 8, 9, 2, 1]
-
-for i in range(1,len(valores)):
-    aux = valores[i]
-    j = i
-    while (j > 0) and (aux < valores[j -1]):
-        valores[j] = valores[j - 1] 
-        j -= 1
-    valores[j] = aux
-
-print(valores)
-		\end{lstlisting}
-	\end{exampleblock}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
 \frametitle{Ordenação por Seleção}
 
 \begin{itemize}
@@ -163,25 +147,9 @@ print(valores)
 	\item Depois o de segundo menor valor para a segunda posição; e
 	\item Assim é feito sucessivamente com os $(n - 1)$ elementos restantes.
 \end{itemize}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-valores = [5, 8, 9, 2, 1]
-
-for i in range(0, len(valores) - 1):
-    index_menor = i
-    for j in range(i + 1, len(valores)):
-        if valores[j] < valores[index_menor]:
-            index_menor = j
-    if valores[index_menor] < valores[i]:
-        valores[i], valores[index_menor] = valores[index_menor], valores[i]  
-
-print(valores)
-	\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
 \frametitle{Ordenação por Flutuação}
 
 \begin{itemize}
@@ -191,19 +159,6 @@ print(valores)
 	\item Essa movimentação lembra a forma como as bolhas em um tanque de
 	água procuram seu próprio nível.
 \end{itemize}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-valores = [5, 8, 9, 2, 1]
-
-for i in range(len(valores) - 1, 0, -1):
-    for j in range(0, i):
-        if (valores[j] > valores[j + 1]):
-            valores[j], valores[j + 1] = valores[j + 1], valores[j] 
-
-print(valores)
-	\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \begin{frame}
@@ -215,53 +170,6 @@ print(valores)
 	\item Conquistar: Classificar as metades recursivamente aplicando o merge
 	sort.
 \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Ordenação por Mistura}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-def merge_sort(lista):
-    if len(lista) > 1:
-        centro = len(lista) // 2
-        sublista_esquerda = lista[:centro]
-        sublista_direita = lista[centro:]
-
-        merge_sort(sublista_esquerda)
-        merge_sort(sublista_direita)
-
-        i = j = k = 0
-        while i < len(sublista_esquerda) and j < len(sublista_direita):
-            if sublista_esquerda[i] < sublista_direita[j]:
-                lista[k] = sublista_esquerda[i]
-                i += 1
-            else:
-                lista[k] = sublista_direita[j]
-                j += 1
-            k += 1
-        while i < len(sublista_esquerda):
-            lista[k] = sublista_esquerda[i]
-            i += 1
-            k += 1
-        while j < len(sublista_direita):
-            lista[k] = sublista_direita[j]
-            j += 1
-            k += 1
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Ordenação por Mistura}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-valores = [5, 8, 9, 2, 1]
-merge_sort(valores)
-print(valores)
-	\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \begin{frame}
@@ -276,52 +184,6 @@ print(valores)
 	\item Recursivamente ordena as sublistas de elementos menor e a maior.
 	sort.
 \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Ordenação Rápida}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-def quick_sort(lista, index_inicio=None, index_fim=None):
-    if index_inicio == None and index_fim == None:
-        index_inicio = 0
-        index_fim = len(lista) - 1
-
-    pivo = lista[(index_inicio + index_fim) // 2]
-    i = index_inicio
-    j = index_fim
-
-    while i < j:
-        while lista[i] < pivo:
-            i += 1
-
-        while lista[j] > pivo:
-            j -= 1
-
-        if i < j:    
-            lista[i], lista[j] = lista[j], lista[i]
-            i += 1
-            j -= 1
-
-    if j > index_inicio:
-        quick_sort(lista, index_inicio, j)
-    if i < index_fim:
-        quick_sort(lista, j+1, index_fim)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Ordenação Rápida}
-
-\begin{exampleblock}{Exemplo}
-	\begin{lstlisting}
-valores = [7,1,3,9,8,4,2,7,4,2,3,5]
-quick_sort(valores)
-print(valores)
-	\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \section{Lista}
@@ -340,222 +202,12 @@ print(valores)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class Elemento:
-    def __init__(self,nome):
-        self.nome = nome
-        self.proximo = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Lista Ligada}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class ListaLigada:
-    def __init__(self):
-        self.inicio = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Adicionar}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def adicionar(self, nome):
-    novo = Elemento(nome)
-    if self.inicio == None:
-        self.inicio = novo
-    else:
-        elemento = self.inicio
-        while elemento.proximo != None:
-            elemento = elemento.proximo
-        elemento.proximo = novo
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Exibir}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def exibir(self):
-    elemento = self.inicio
-    print(elemento.nome)
-    while elemento.proximo != None:
-        elemento = elemento.proximo
-        print(elemento.nome)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Remover}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-def remover(self, nome):
-    elemento = self.inicio
-    if elemento.nome == nome:
-        self.inicio = elemento.proximo
-    else:
-        while elemento.proximo != None:
-            if elemento.proximo.nome == nome:
-                elemento.proximo = elemento.proximo.proximo
-            else:
-                elemento = elemento.proximo
-\end{lstlisting}
-
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Lista Ligada}
-
-\begin{exampleblock}{Código}
-	
-\begin{lstlisting}
-lista = ListaLigada()
-
-lista.adicionar('João')
-lista.adicionar('Pedro')
-lista.adicionar('Marcos')
-lista.adicionar('Lucas')
-
-lista.remover('Pedro')
-
-lista.exibir()
-\end{lstlisting}
-	
-\end{exampleblock}
-\end{frame}
-
 \begin{frame}
 \frametitle{Lista Duplamente Ligada}
 
 \begin{block}{Definição}
 É uma estrutura de dados que implementa uma coleção de dados ligados de forma dinâmica em sentido duplo.
 \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-class Elemento:
-    def __init__(self,nome):
-        self.anterior = None
-        self.nome = nome
-        self.proximo = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Lista Duplamente Ligada}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-class ListaDuplamenteLigada:
-    def __init__(self):
-        self.inicio = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Adicionar}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def adicionar(self, nome):
-    novo = Elemento(nome)
-    if self.inicio == None:
-        self.inicio = novo
-    else:
-        elemento = self.inicio
-        while elemento.proximo != None:
-            elemento = elemento.proximo
-        elemento.proximo = novo
-        novo.anterior = elemento
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Exibir}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def exibir(self):
-    elemento = self.inicio
-    print(elemento.nome)
-    while elemento.proximo != None:
-        elemento = elemento.proximo
-        print(elemento.nome)
-    while elemento.anterior != None:
-        elemento = elemento.anterior
-        print(elemento.nome)
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Remover}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-def remover(self, nome):
-    elemento = self.inicio
-    if elemento.nome == nome:
-        self.inicio = elemento.proximo
-        self.inicio.anterior = None
-    else:
-        elemento = elemento.proximo
-        while elemento != None:
-            if elemento.nome == nome:
-                if elemento.proximo != None:
-                    elemento.anterior.proximo = elemento.proximo
-                    elemento.proximo.anterior = elemento.anterior
-                else:
-                    elemento.anterior.proximo = None
-            elemento = elemento.proximo
-\end{lstlisting}
-
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Lista Duplamente Ligada}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-lista = ListaDuplamenteLigada()
-
-lista.adicionar('João')
-lista.adicionar('Pedro')
-lista.adicionar('Marcos')
-lista.adicionar('Lucas')
-
-lista.remover('Pedro')
-
-lista.exibir()
-\end{lstlisting}
-
-\end{exampleblock}
 \end{frame}
 
 \begin{frame}
@@ -566,108 +218,6 @@ lista.exibir()
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class Elemento:
-    def __init__(self,nome):
-        self.nome = nome
-        self.proximo = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Lista Circular}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-class ListaCircular:
-    def __init__(self):
-        self.inicio = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Adicionar}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def adicionar(self, nome):
-    novo = Elemento(nome)
-    if self.inicio == None:
-        self.inicio = novo
-        novo.proximo = self.inicio
-    else:
-        elemento = self.inicio
-        while elemento.proximo.nome != self.inicio.nome:
-            elemento = elemento.proximo
-        elemento.proximo = novo
-        novo.proximo = self.inicio
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Exibir}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def exibir(self):
-    elemento = self.inicio
-    print(elemento.nome)
-    while elemento.proximo.nome != self.inicio.nome:
-        elemento = elemento.proximo
-        print(elemento.nome)
-    print(elemento.proximo.nome)
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Remover}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-def remover(self, nome): 
-    elemento = self.inicio
-    if elemento.nome == nome:
-        self.inicio = elemento.proximo
-        while elemento.proximo.nome != nome:
-            elemento = elemento.proximo
-        elemento.proximo = self.inicio
-    else:
-        while elemento.proximo.nome != nome:
-            elemento = elemento.proximo
-        elemento.proximo = elemento.proximo.proximo
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Lista Circular}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-lista = ListaCircular()
-
-lista.adicionar('João')
-lista.adicionar('Pedro')
-lista.adicionar('Marcos')
-lista.adicionar('Lucas')
-
-lista.remover('João')
-
-lista.exibir()
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
 \section{Pilha}
 
 \begin{frame}
@@ -676,86 +226,6 @@ lista.exibir()
 \begin{block}{Definição}
 	É uma estrutura de dados baseada no princípio LIFO (Last In, First Out), na qual os dados que foram inseridos primeiro na pilha serão os últimos a serem removidos.
 \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class Elemento:
-    def __init__(self,nome):
-        self.nome = nome
-        self.proximo = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Pilha}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-class Pilha:
-    def __init__(self):
-        self.topo = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Empilhar}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-def empilhar(self,nome):
-    novo = Elemento(nome)
-    if self.topo == None:
-        self.topo = novo
-    else:
-        novo.proximo = self.topo  
-        self.topo = novo
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Desempilhar}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-def desempilhar(self):
-    if self.topo == None:
-        return None
-    else:
-        elemento = self.topo
-        self.topo = elemento.proximo
-        return elemento.nome
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Pilha}
-
-\begin{exampleblock}{Código}
-
-\begin{lstlisting}
-pilha = Pilha()
-
-pilha.empilhar('João')
-pilha.empilhar('Lucas')
-pilha.empilhar('Pedro')
-pilha.empilhar('Maria')
-
-nome = pilha.desempilhar()
-
-print(nome)
-\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \section{Fila}
@@ -773,174 +243,12 @@ print(nome)
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class Elemento:
-	def __init__(self,nome):
-	    self.nome = nome
-        self.proximo = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Fila}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class Fila:
-    def __init__(self):
-        self.inicio = None
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Enfileirar}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def enfileirar(self,nome):
-    novo = Elemento(nome)
-    if self.inicio == None:
-        self.inicio = novo
-    else:
-        elemento = self.inicio
-        while elemento.proximo != None:
-            elemento = elemento.proximo
-        elemento.proximo = novo
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Desenfileirar}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def desenfileirar(self):
-    if self.inicio == None:
-        return None
-    else:
-        elemento = self.inicio
-        self.inicio = elemento.proximo
-        return elemento.nome
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Fila}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-fila = Fila()
-
-fila.enfileirar('João')
-fila.enfileirar('Pedro')
-fila.enfileirar('Lucas')
-fila.enfileirar('Maria')
-
-nome = fila.desenfileirar()
-
-print(nome)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
 \begin{frame}
 \frametitle{Fila com Prioridade}
 
 \begin{block}{Definição}
 É uma estrutura de dados em que os elementos são inseridos em ordem de prioridade.
 \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Elemento}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-class Elemento:
-    def __init__(self,nome,prioridade):
-        self.nome = nome
-        self.prioridade = prioridade
-        self.proximo = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Fila com Prioridade}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-class FilaPrioridade:
-    def __init__(self):
-        self.inicio = None
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Enfileirar}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def enfileirar(self,nome,prioridade):
-    novo = Elemento(nome,prioridade)
-    if self.inicio == None:
-        self.inicio = novo
-    elif self.inicio.prioridade >= novo.prioridade:
-        novo.proximo = self.inicio
-        self.inicio = novo
-    else:
-        elemento = self.inicio
-        while (elemento.proximo != None and 
-               elemento.proximo.prioridade < novo.prioridade):
-            elemento = elemento.proximo
-        novo.proximo = elemento.proximo
-        elemento.proximo = novo
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Desenfileirar}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-def desenfileirar(self):
-    if self.inicio == None:
-        return None
-    else:
-        elemento = self.inicio
-        self.inicio = elemento.proximo
-        return elemento.nome
-\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Fila com Prioridade}
-
-\begin{exampleblock}{Código}
-\begin{lstlisting}
-fila = FilaPrioridade()
-
-fila.enfileirar('João',3)
-fila.enfileirar('Pedro',2)
-fila.enfileirar('Lucas',1)
-fila.enfileirar('Maria',0)
-
-nome = fila.desenfileirar()
-
-print(nome)
-\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \section{Espalhamento}
@@ -951,93 +259,6 @@ print(nome)
 \begin{block}{Definição}
 É uma estrutura de dados especial, que associa chaves de pesquisa a valores.
 \end{block}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Classe Tabela de Espalhamento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-class TabelaEspalhamento:
-    def __init__(self,n):
-        self.tabela = []
-        for i in range(0,n):
-            self.tabela.append(ListaLigada())
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método de Espalhamento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def espalhamento(self,valor):
-    return valor % len(self.tabela)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método de Adicionar}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def adicionar(self,valor):
-    chave = self.espalhamento(valor)
-    self.tabela[chave].adicionar(valor)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Exibir}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def exibir(self):
-    for i in range(0,len(self.tabela)):
-        print('Chave:',i)
-        self.tabela[i].exibir()
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Método Remover}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-def remover(self,valor):
-    chave = self.espalhamento(valor)
-    self.tabela[chave].remover(valor)
-	\end{lstlisting}
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Usando Tabela de Espalhamento}
-
-\begin{exampleblock}{Código}
-	\begin{lstlisting}
-tabela = TabelaEspalhamento(5)
-
-tabela.adicionar(54)
-tabela.adicionar(21)
-tabela.adicionar(15)
-tabela.adicionar(46)
-tabela.adicionar(7)
-tabela.adicionar(33)
-tabela.adicionar(78)
-tabela.adicionar(9)
-tabela.adicionar(14)
-tabela.adicionar(62)
-tabela.adicionar(95)
-tabela.adicionar(87)
-
-tabela.exibir()
-	\end{lstlisting}
-\end{exampleblock}
 \end{frame}
 
 \end{document}
