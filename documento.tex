@@ -89,11 +89,11 @@ diego.nascimento@ifrn.edu.br
 \begin{document}
 
 \begin{frame}[plain]
-	\includegraphics[scale=0.2]{IFRN}
+	\includegraphics[scale=0.2]{img/IFRN}
 	\titlepage
 \end{frame}
 
-\logo{\includegraphics[scale=0.1]{IFRN}}
+\logo{\includegraphics[scale=0.1]{img/IFRN}}
 
 \begin{frame}
 	\frametitle{Ementa do Curso}
@@ -189,11 +189,7 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 \section{Lista}
 
 \begin{frame}
-\frametitle{Lista Ligada}
-
-\begin{block}{Definição}
-É uma estrutura de dados que implementa uma coleção de dados ligados (encadeados) de forma dinâmica em um único sentido.
-\end{block} \vfill
+\frametitle{Lista}
 
 \begin{itemize}
 	\item Lista ligada;
@@ -203,11 +199,31 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 \end{frame}
 
 \begin{frame}
+\frametitle{Lista Ligada}
+
+\begin{block}{Definição}
+	É uma estrutura de dados que implementa uma coleção de dados ligados (encadeados) de forma dinâmica em um único sentido.
+\end{block} \vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+	\includegraphics[scale=0.5]{img/lista-ligada.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
 \frametitle{Lista Duplamente Ligada}
 
 \begin{block}{Definição}
 É uma estrutura de dados que implementa uma coleção de dados ligados de forma dinâmica em sentido duplo.
-\end{block}
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/lista-dupla.png}
+	\end{center}
+\end{exampleblock}
 \end{frame}
 
 \begin{frame}
@@ -215,7 +231,13 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 
 \begin{block}{Definição}
 	É uma estrutura de dados que implementa uma coleção de dados ligados de forma dinâmica em um único sendito, no qual o final da lista corresponde o início da própria lista.
-\end{block}
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/lista-circular.png}
+	\end{center}
+\end{exampleblock}
 \end{frame}
 
 \section{Pilha}
@@ -225,17 +247,19 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 
 \begin{block}{Definição}
 	É uma estrutura de dados baseada no princípio LIFO (Last In, First Out), na qual os dados que foram inseridos primeiro na pilha serão os últimos a serem removidos.
-\end{block}
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/pilha.png}
+	\end{center}
+\end{exampleblock}
 \end{frame}
 
 \section{Fila}
 
 \begin{frame}
 \frametitle{Fila}
-
-\begin{block}{Definição}
-	 É uma estrutura de dados baseada no princípio FIFO (First In, First Out), em que os elementos inseridos no início são os primeiros a serem removidos. 
-\end{block}\vfill
 
 \begin{itemize}
 	\item Fila simples; e
@@ -244,11 +268,31 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 \end{frame}
 
 \begin{frame}
+\frametitle{Fila}
+
+\begin{block}{Definição}
+	 É uma estrutura de dados baseada no princípio FIFO (First In, First Out), em que os elementos inseridos no início são os primeiros a serem removidos. 
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+\begin{center}
+	\includegraphics[scale=0.5]{img/fila.png}
+\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
 \frametitle{Fila com Prioridade}
 
 \begin{block}{Definição}
 É uma estrutura de dados em que os elementos são inseridos em ordem de prioridade.
-\end{block}
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+\begin{center}
+	\includegraphics[scale=0.5]{img/fila-prioridade.png}
+\end{center}
+\end{exampleblock}
 \end{frame}
 
 \section{Espalhamento}
@@ -258,7 +302,82 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 
 \begin{block}{Definição}
 É uma estrutura de dados especial, que associa chaves de pesquisa a valores.
-\end{block}
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.37]{img/espalhamento.png}
+	\end{center}
+\end{exampleblock}
 \end{frame}
 
+\section{Árvore}
+
+\begin{frame}
+\frametitle{Árvore}
+
+\begin{block}{Definição}
+	É uma estrutura de dados em que cada elemento tem um ou mais elementos associados.
+\end{block}\vfill
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/arvore.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Inserir um Nó}
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/arvore-inserir.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Excluir um Nó Folha}
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/arvore-excluir-folha.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Excluir um Nó com uma Subárvore}
+
+\begin{exampleblock}{Ilustração}
+	\begin{center}
+		\includegraphics[scale=0.5]{img/arvore-excluir-uma-subarvore.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Excluir um Nó com duas Subárvores}
+
+\begin{exampleblock}{Ilustração: Caso 1}
+	\begin{center}
+		\includegraphics[scale=0.4]{img/arvore-excluir-duas-subarvores-caso1.png}
+	\end{center}
+\end{exampleblock}\vfill
+
+\begin{exampleblock}{Ilustração: Caso 2}
+	\begin{center}
+		\includegraphics[scale=0.4]{img/arvore-excluir-duas-subarvores-caso2.png}
+	\end{center}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\frametitle{Árvores Balanceadas}
+\begin{itemize}
+	\item Árvore AVL; e
+	\item Árvore Rubro Negra.
+\end{itemize}
+\end{frame}
 \end{document}
