@@ -380,4 +380,152 @@ de forma organizada (ascendente ou descendente) de acordo seus valores.
 	\item Árvore Rubro Negra.
 \end{itemize}
 \end{frame}
+
+\section{Complexidade}
+
+\begin{frame}
+\frametitle{Análise de Algoritmos}
+
+\begin{block}{Definição}
+É um mecanismo para entender e avaliar um algoritmo em relação aos critérios desempenho, bem como saber aplica-los à problemas práticos.
+\end{block}\vfill
+
+\begin{itemize}
+	\item Empírica; ou 
+	\item Matemática.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Análise Assintótica}
+
+\begin{block}{Definição}
+É um método de descrever o comportamento de limites de algoritmos quando aplicados a um volume muito grande de dados de entrada.
+\end{block}\vfill
+
+\begin{itemize}
+	\item Big $O$ (Pior dos casos);
+	\item Big $\Omega$ (Melhor dos casos); e
+	\item Big $\Theta$ (Caso médio).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Crescimento de Função no Big $O$}
+\begin{itemize}
+	\item $O(1)$
+	\item $O(\log N)$
+	\item $O(N)$
+	\item $O(N \log N)$
+	\item $O(N^{2})$
+	\item $O(2^{N})$
+	\item $O(N!)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(1)$}
+
+\begin{block}{Descrição}
+Maior parte das instruções são executadas apenas uma ou algumas vezes, independente de $N$ -- tempo de execução constante.
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+\begin{lstlisting}
+def constante(n):
+    print(n)
+\end{lstlisting}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(\log N)$}
+
+\begin{block}{Descrição}
+Ocorre em programas que resolve um problema maior transformado-o em uma série de subproblemas menores, assim reduzindo o tamanho do problema por uma certa constante fracionária a cada passo -- tempo de execução logarítmico. Sempre que $N$ dobra, $\log N$ aumenta de uma certa constante, mas $\log N$ não dobra até que $N$ tenha sido aumentado para $N2$.
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+\begin{lstlisting}
+def busca_binaria(n, array):
+     metade = len(array)//2
+     if(n == array[metade])
+          return metade
+     elif(n > array[metade]):
+          return busca_binaria(n, array[metade:])
+     elif(n < array[metade]):
+          return busca_binaria(n, array[:metade-1])
+\end{lstlisting}	
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(N)$}
+
+\begin{block}{Descrição}
+Acontece quando uma pequena quantidade de processamento deve ser feito para cada elemento da entrada -- tempo de execução linear. Esta é a situação ótima para um algoritmo que deve processar $N$ entradas (ou gerar $N$ saídas).
+\end{block} \vfill
+
+\begin{exampleblock}{Exemplo}
+\begin{lstlisting}
+def linear(n);
+    for i range(n):
+        print(i)
+\end{lstlisting}	
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(N \log N)$}
+
+\begin{block}{Definição}
+Ocorre em algoritmos que quebra o problema principal em subproblemas menores, resolvendo-os e combinando as soluções -- tempo de execução ``linearítmico'' ou $N \log N$. Quando $N$ dobra o tempo de execução torna-se um pouco mais do que o dobro.
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+Algoritmo de ordenação por mistura (Merge Sort)
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(N^{2})$}
+
+\begin{block}{Definição}
+Tipicamente representa algoritmos que processa todos os pares de itens de dados -- tempo de execução quadrático. Este tipo de complexidade é aceitável apenas para problemas relativamente pequenos. Quando $N$ dobra o tempo de execução aumenta 4 vezes.
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+\begin{lstlisting}
+def quandratico(n);
+    for i range(n):
+        for j range(n):
+            print(i, j)
+\end{lstlisting}	
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(2^{N})$}
+
+\begin{block}{Definição}
+Corresponde a algoritmos que utilizam força-bruta na solução de problemas -- tempo de execução exponencial. Algoritmos com esta performance são impraticáveis. Sempre que $N$ dobra o tempo de execuçãoo é elevado ao quadrado.
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+Encontrar a solução exata para o Problema do cacheiro viajante usando programação dinâmica.
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Função $O(N!)$}
+
+\begin{block}{Definição}
+	
+\end{block}\vfill
+
+\begin{exampleblock}{Exemplo}
+Encontrar a solução exata para o Problema do caixeiro viajante usando busca por força bruta.
+\end{exampleblock}
+\end{frame}
+
 \end{document}
